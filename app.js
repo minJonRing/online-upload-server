@@ -12,7 +12,7 @@ const logger = require('koa-logger')
 
 // 路由
 const index = require('./routes/index')
-const UserController = require("./controller/UserController")
+// const UserController = require("./controller/UserController")
 
 // error handler
 onerror(app)
@@ -41,7 +41,7 @@ app.use(async (ctx, next) => {
 
 // routes
 app.use(index.routes(), index.allowedMethods())
-app.use(UserController.routes(), UserController.allowedMethods())
+// app.use(UserController.routes(), UserController.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
