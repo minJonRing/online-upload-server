@@ -7,7 +7,7 @@ router.get('/', async (ctx, next) => {
 })
 
 router.get('/uploadToConfigParam', async (ctx, next) => {
-  ctx.bodt = {
+  ctx.body = {
     code: 200,
     message: "请求成功!",
     data: {
