@@ -7,8 +7,8 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 
 // 启动数据库
-const statrDB = require('./models/index');
-statrDB()
+// const statrDB = require('./models/index');
+// statrDB()
 
 // 路由
 const index = require('./routes/index')
