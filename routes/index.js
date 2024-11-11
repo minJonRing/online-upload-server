@@ -14,8 +14,8 @@ router.get('/uploadToConfigParam', async (ctx, next) => {
       version: 'v1.1',
       build: '/upload/build/build.zip',
       renderer: '/upload/renderer/renderer.zip',
-      dist: '/upload/static/dist.zip',
-      views: '/upload/views/index.html'
+      dist: '/upload/static/static-152365.zip',
+      views: '/upload/views/index-152365.zip'
     }
   }
 })
