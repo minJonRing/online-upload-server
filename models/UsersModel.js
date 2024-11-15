@@ -7,4 +7,4 @@ const Model = mongo.Schema({
     email: String,
     cover: String
 })
-module.exports = mongo.model('users', Model);
+module.exports = mongo.model('Users', Model);

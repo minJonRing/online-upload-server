@@ -8,7 +8,7 @@ const ResSuccess = (data, message = '请求成功!') => {
 }
 const ResFail = (err, message = '请联系管理员!') => {
     return {
-        code: 500,
+        code: 200,
         message: err.message || message
     }
 }
