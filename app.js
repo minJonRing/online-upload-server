@@ -4,6 +4,7 @@ const views = require('koa-views')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
+const cors = require('koa2-cors');
 const logger = require('koa-logger')
 const jwt = require('jsonwebtoken');
 // 启动数据库
@@ -18,6 +19,18 @@ const ProjectController = require("./controller/ProjectController")
 // error handler
 onerror(app)
 
+app.use(cors({
+  origin: (ctx) => {
+    // 允许的来源，动态设置
+    // if (ctx.request.header.origin === 'http://example.com') {
+    //     return 'http://example.com'; // 允许指定的域名
+    // }
+    return '*'; // 默认允许所有
+  },
+  credentials: true, // 是否允许携带 Cookie
+  allowMethods: ['GET'], // 允许的方法
+  allowHeaders: ['Content-Type', 'Authorization', 'Accept'], // 允许的请求头
+}));
 // middlewares
 app.use(bodyparser({
   enableTypes: ['json', 'form', 'text']
@@ -41,7 +54,7 @@ app.use(async (ctx, next) => {
 app.use(async (ctx, next) => {
   await next()
   const { url, header } = ctx.request;
-  if (!/login|uploadToConfigParam/g.test(url)) {
+  if (!/login|uploadToConfigParam|projectToSign/g.test(url)) {
     const token = header['token'];
     if (!token) {
       ctx.body = {

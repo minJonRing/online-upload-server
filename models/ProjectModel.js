@@ -2,6 +2,7 @@ const mongo = require('mongoose');
 
 const filesSchema = new mongo.Schema({
     version: String,
+    describe: String,
     build: String,
     renderer: String,
     dist: String,
@@ -17,7 +18,7 @@ const Model = mongo.Schema({
     sign: { type: String, required: true, unique: true },
     describe: { type: String },
     files: { type: [filesSchema], default: [] },
-    CompanyId: { type: mongo.Schema.Types.ObjectId, ref: 'Company' },
+    companyId: { type: mongo.Schema.Types.ObjectId, ref: 'Company' },
     createdTime: {
         type: Date,
         default: Date.now,
