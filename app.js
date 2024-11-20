@@ -54,7 +54,7 @@ app.use(async (ctx, next) => {
 app.use(async (ctx, next) => {
   await next()
   const { url, header } = ctx.request;
-  if (!/login|uploadToConfigParam|projectToSign/g.test(url)) {
+  if (!/login|uploadToConfigParam|projectToSign/g.test(url) && url !== '/') {
     const token = header['token'];
     if (!token) {
       ctx.body = {
