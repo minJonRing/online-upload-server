@@ -7,4 +7,10 @@ node_modules/
 
 package-lock.json
 yarn.lock
-public/upload
+
+public/upload/build
+public/upload/image
+public/upload/renderer
+public/upload/static
+public/upload/video
+public/upload/views
