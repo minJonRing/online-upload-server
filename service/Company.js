@@ -1,4 +1,4 @@
-const Company = require("../models/companyModel");
+const Company = require("../models/CompanyModel");
 
 module.exports = {
     getDataAll: async () => {
