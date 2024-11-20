@@ -8,9 +8,9 @@ node_modules/
 package-lock.json
 yarn.lock
 
-public/upload/build/*
+public/upload/build/*.zip
 public/upload/image/*
-public/upload/renderer/*
-public/upload/static/*
-public/upload/video/*
-public/upload/views/*
+public/upload/renderer/*.zip
+public/upload/static/*.zip
+public/upload/video/*.zip
+public/upload/views/*.zip
