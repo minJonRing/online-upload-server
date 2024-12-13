@@ -15,6 +15,9 @@ statrDB()
 const index = require('./routes/index')
 const CompanyController = require("./controller/CompanyController")
 const ProjectController = require("./controller/ProjectController")
+const SoftwareController = require("./controller/SoftwareController")
+const ArtController = require("./controller/ArtController")
+const ProgramController = require("./controller/ProgramController")
 
 // error handler
 onerror(app)
@@ -54,7 +57,7 @@ app.use(async (ctx, next) => {
 app.use(async (ctx, next) => {
   await next()
   const { url, header } = ctx.request;
-  if (!/login|uploadToConfigParam|projectToSign/g.test(url) && url !== '/') {
+  if (!/login|client|admin|uploadToConfigParam|projectToSign/g.test(url) && url !== '/') {
     const token = header['token'];
     if (!token) {
       ctx.body = {
@@ -80,6 +83,9 @@ app.use(async (ctx, next) => {
 app.use(index.routes(), index.allowedMethods())
 app.use(CompanyController.routes(), CompanyController.allowedMethods())
 app.use(ProjectController.routes(), ProjectController.allowedMethods())
+app.use(SoftwareController.routes(), SoftwareController.allowedMethods())
+app.use(ArtController.routes(), ArtController.allowedMethods())
+app.use(ProgramController.routes(), ProgramController.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

@@ -62,7 +62,32 @@ async function removeFromArray(model, filter, arrayField, valueToRemove) {
     }
 }
 
+/**
+ * 通用的数组字段查询工具
+ * @param {String} model - Mongoose 模型
+ * @param {String} field - 要查询的数组字段名
+ * @param {String|Array} value - 要匹配的值或值列表
+ * @param {Boolean} isMultiple - 是否匹配多个值
+ * @returns {Promise<Array>} - 返回查询结果
+ */
+const queryArrayField = async (model, field, value, isMultiple = false) => {
+    try {
+        const condition = isMultiple
+            ? { [field]: { $in: value } } // 多值查询
+            : { [field]: value }; // 单值查询
+
+        const results = await model.find(condition).populate({
+            path: populateField, // 关联字段
+        })
+        return results;
+    } catch (error) {
+        console.error('Error querying array field:', error);
+        throw error;
+    }
+};
+
 module.exports = {
     paginate,
-    removeFromArray
+    removeFromArray,
+    queryArrayField,
 }

@@ -31,6 +31,6 @@ module.exports = {
     },
     getDataBySign: async (param) => {
         const { sign } = param;
-        return await Project.findOne({ sign })
+        return await Project.findOne({ sign, status: 1 })
     },
 };

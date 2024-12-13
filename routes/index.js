@@ -12,6 +12,12 @@ router.get('/', async (ctx, next) => {
     title: '测试地址!'
   })
 })
+
+router.get('/admin', async (ctx, next) => {
+  await ctx.render('index', {
+    title: '测试地址!'
+  })
+})
 // 登录
 router.post('/login', async (ctx, next) => {
   await next()
