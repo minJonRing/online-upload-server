@@ -39,13 +39,13 @@ function upload(url = "image") {
                                 return {
                                     fileName: originalFilename.replace(/(?=\.).+/g, ''),
                                     filePath: `/upload/${url}/${newFilename}`,
-                                    ossName: originalFilename
+                                    ossName: newFilename
                                 }
                             })
                             resolve(list)
                         } else {
                             const { newFilename, originalFilename } = file;
-                            resolve([{ fileName: originalFilename.replace(/(?=\.).+/g, ''), filePath: `/upload/${url}/${newFilename}`, ossName: originalFilename }])
+                            resolve([{ fileName: originalFilename.replace(/(?=\.).+/g, ''), filePath: `/upload/${url}/${newFilename}`, ossName: newFilename }])
                         }
                     } catch (err) {
                         console.log(err.message)
@@ -97,13 +97,13 @@ function uploadWangeditor(url = "image") {
                                 return {
                                     fileName: originalFilename.replace(/(?=\.).+/g, ''),
                                     filePath: `/upload/${url}/${newFilename}`,
-                                    ossName: originalFilename
+                                    ossName: newFilename
                                 }
                             })
                             resolve(list)
                         } else {
                             const { newFilename, originalFilename } = file;
-                            resolve([{ fileName: originalFilename.replace(/(?=\.).+/g, ''), filePath: `/upload/${url}/${newFilename}`, ossName: originalFilename }])
+                            resolve([{ fileName: originalFilename.replace(/(?=\.).+/g, ''), filePath: `/upload/${url}/${newFilename}`, ossName: newFilename }])
                         }
                     } catch (err) {
                         console.log(err.message)
