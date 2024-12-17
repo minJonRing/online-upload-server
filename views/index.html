@@ -1,23 +1,4 @@
-<!doctype html>
-<html lang="">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css" />
-    <title>d1</title>
-    <script src="https://code.jquery.com/jquery-2.2.4.js"
-        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-    <script defer="defer" src="/static/client/js/chunk-vendors.5e34279f.js"></script>
-    <script defer="defer" src="/static/client/js/app.c4c00899.js"></script>
-    <link href="/static/client/css/chunk-vendors.605b337d.css" rel="stylesheet">
-    <link href="/static/client/css/app.0ede2e31.css" rel="stylesheet">
-</head>
-
-<body>
-    <script type="x-shader/x-vertex" id="vertexshader">attribute float size;
+<!doctype html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="https://cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css"/><title>d1</title><script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script><script defer="defer" src="/static/client/js/chunk-vendors.5e34279f.js"></script><script defer="defer" src="/static/client/js/app.d2bf940e.js"></script><link href="/static/client/css/chunk-vendors.605b337d.css" rel="stylesheet"><link href="/static/client/css/app.4d51731d.css" rel="stylesheet"></head><body><script type="x-shader/x-vertex" id="vertexshader">attribute float size;
 			attribute vec3 customColor;
 
 			varying vec3 vColor;
@@ -32,8 +13,7 @@
 
 				gl_Position = projectionMatrix * mvPosition;
 
-			}</script>
-    <script type="x-shader/x-fragment" id="fragmentshader">uniform vec3 color;
+			}</script><script type="x-shader/x-fragment" id="fragmentshader">uniform vec3 color;
 			uniform sampler2D pointTexture;
 
 			varying vec3 vColor;
@@ -43,8 +23,7 @@
 				gl_FragColor = vec4( color * vColor, 1.0 );
 				gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );
 
-			}</script>
-    <script type="x-shader/x-fragment" id="vertShader">precision mediump float;
+			}</script><script type="x-shader/x-fragment" id="vertShader">precision mediump float;
 
       varying vec2 vUv;
       attribute vec2 a_position;
@@ -52,8 +31,7 @@
       void main() {
           vUv = .5 * (a_position + 1.);
           gl_Position = vec4(a_position, 0.0, 1.0);
-      }</script>
-    <script type="x-shader/x-fragment" id="fragShader">precision mediump float;
+      }</script><script type="x-shader/x-fragment" id="fragShader">precision mediump float;
 
       varying vec2 vUv;
       uniform float u_time;
@@ -105,9 +83,4 @@
           color = color * noise;
 
           gl_FragColor = vec4(color, noise);
-      }</script><noscript><strong>We're sorry but d1 doesn't work properly without JavaScript enabled. Please enable it
-            to continue.</strong></noscript>
-    <div id="app"></div>
-</body>
-
-</html>
+      }</script><noscript><strong>We're sorry but d1 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>
